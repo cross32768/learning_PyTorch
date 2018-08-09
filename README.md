@@ -1,0 +1,2 @@
+# learning_PyTorch
+自分でPyTorchを勉強する時にGPUマシンとノートPC間の伝送や過去のコード記録に使うリポジトリ
