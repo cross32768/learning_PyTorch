@@ -5,7 +5,7 @@
 
 
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 import torch
 import torchvision
@@ -53,16 +53,16 @@ print('test_data:', len(mnist_test))
 
 
 # データの可視化
-def imshow(img):
-    npimg = img.numpy() * 0.5 + 0.5
-    plt.imshow(np.transpose(npimg, (1, 2, 0)))
-n_show = 25
-n_row = 5
-images, labels = iter(mnist_train_loader).next()
-images, labels = images[:n_show], labels[:n_show]
-imshow(make_grid(images, nrow = n_row, padding = 1))
-plt.axis('off')
-print(labels.view(-1, n_row))
+# def imshow(img):
+#   npimg = img.numpy() * 0.5 + 0.5
+#   plt.imshow(np.transpose(npimg, (1, 2, 0)))
+# n_show = 25
+# n_row = 5
+# images, labels = iter(mnist_train_loader).next()
+# images, labels = images[:n_show], labels[:n_show]
+# imshow(make_grid(images, nrow = n_row, padding = 1))
+# plt.axis('off')
+# print(labels.view(-1, n_row))
 
 
 # In[95]:
@@ -184,12 +184,12 @@ for epoch in range(n_epochs):
     loss_list.append(loss)
     val_loss_list.append(val_loss)
     val_acc_list.append(val_acc)
-    print('epoch[%d/%d], loss:%1.4f val_loss:%1.4f val_acc:%1.4f' % (epoch, n_epochs, loss, val_loss, va_acc))
+    print('epoch[%d/%d], loss:%1.4f val_loss:%1.4f val_acc:%1.4f' % (epoch + 1, n_epochs, loss, val_loss, val_acc))
 
-np.save('./mnist_result/loss_list.npy', np.array(loss_list))
-np.save('./mnist_result/val_loss_list.npy', np.array(val_loss_list))
-np.save('./mnist_result/val_acc_list.npy', np.array(val_acc_list))
-torch.save(net.state_dict(), './mnist/result/CNN_MNIST.pth')
+np.save('mnist_result/loss_list.npy', np.array(loss_list))
+np.save('mnist_result/val_loss_list.npy', np.array(val_loss_list))
+np.save('mnist_result/val_acc_list.npy', np.array(val_acc_list))
+torch.save(net.state_dict(), 'mnist_result/CNN_MNIST.pth')
 
 
 # In[88]:
